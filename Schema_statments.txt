@@ -1,0 +1,26 @@
+Entities:-
+
+• Users(UserID, FirstName, LastName, Email, Password, DateOfBirth, PhoneNumber)
+• Theaters(TheaterID, Name, Address, City, State, PostalCode, PhoneNumber, TotalSeats, NumberOfScreens)
+• Movies(MovieID, Title, Genre, Duration, Director, Cast, ReleaseDate, Synopsis, Poster)
+• Screens(ScreenID, TheaterID, ScreenName, SeatCapacity)
+• Showtimes(ShowtimeID, MovieID, TheaterID, ScreenID, StartTime, EndTime, Date, TicketPrice)
+• Tickets(TicketID, ShowtimeID, UserID, BookingTime, TotalAmount, SeatNumber)
+• Payments(PaymentID, TicketID, PaymentMethod, Amount, PaymentStatus, TransactionID)
+• Promotions(PromoID, Code, Description, DiscountPercentage, ValidFrom, ValidTill)
+• RatingsReviews(RatingReviewID, UserID, MovieID, Rating, Review)
+
+
+Relationships:-
+
+• Users to Tickets: Buys(UserID, TicketID)
+• Theaters to Screens: has(TheaterID, ScreenID)
+• Theaters to Showtimes: displays(ShowtimeID, TheaterID)
+• Movies to Showtimes: plays(MovieID, ShowtimeID)
+• Showtimes to Tickets:booked_for(ShowtimeID, TicketID)
+• Users to Payments: makes(UserID, PaymentID)
+• Tickets to Payments: made_for(TicketID, PaymentID)
+• Users to Promotions: UserPromotions(UserID, PromoID, DateUsed)
+• Users to RatingsReviews: Gives(UserID, RatingReviewID)
+• Movies to RatingsReviews: Has(MovieID, RatingReviewID)
+
